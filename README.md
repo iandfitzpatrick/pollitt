@@ -32,7 +32,7 @@ To see these examples in action, reference the sample <a href="http://bit.ly/pol
 
 All of the following settings reference the configuration.js file located in Pollit's root directory:
 
-1. Point your instance of Pollitt to the Google Spreadsheet you've created by updating the value of <strong>googleSpreadsheetURL</strong><code><pre>&lt;var googleSpreadsheetURL = "YOUR URL HERE";&lt;</pre></code>
+1. Point your instance of Pollitt to the Google Spreadsheet you've created by updating the value of <strong>googleSpreadsheetURL</strong>
 
 2. Update the page title and header by updating <strong>pageTitle_str</strong>
 3. You can adjust thresholds for identifying a variable as underindexed or overindexed by changing the values of <strong>overIndexThreshold_num</strong> and <strong>underIndexThreshold_num</strong>.
