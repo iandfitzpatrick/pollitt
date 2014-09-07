@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+	
+    <!-- --------------------------------------------------------- LOAD HEADER SCRIPTS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">		<!-- BOOTSTRAP CSS -->
+    <link href="css/theme.default.css" rel="stylesheet"></link>												<!-- TABLESORTER THEME -->
+    <link href="css/custom.css" rel="stylesheet"></link>												<!-- TABLESORTER THEME -->
+		
+    <script src="//www.google.com/jsapi"></script>								<!-- GOOGLE AJAX API -->
+    <script src="configuration.js"></script>										<!-- USER VARIABLES -->
+		
+    <script src="js/dataLoadingFunctions.js"></script>								<!-- DATA LOADING FUNCTIONS -->
+    <script src="js/dataHandlingFunctions.js"></script>								<!-- DATA HANDLING FUNCTIONS -->
+    <script src="js/renderingFunctions.js"></script>									<!-- RENDERING FUNCTIONS -->
+    <script src="js/mathFunctions.js"></script>										<!-- MATH FUNCTIONS -->	
+		
+    <script>
+      google.load('visualization', '1', {'packages':['corechart']});										// VISUALIZATION API & CORE CHARTS
+    </script>
+	
+  </head>
+	
+  <body>		<!----------------------------------------------------------------------------------------- BEGIN PAGE BODY -->
+	
+	<div class="container bottom-ten top-ten">
+	  <div class="row">
+		<div class="col-md-12 page-header-text">
+		  <a href="index.html"><span class="glyphicon glyphicon-home right-ten"></span></a><span class="" id="titleBar">Pollitt : </span>
+		</div>
+	  </div>
+	</div>
+	
+
+	<div class="center" id="loadanimation">
+	  <div class="bouncywrap">
+	        
+	        <div class="dotcon dc1">
+	        <div class="dot"></div>
+	        </div>
+	    
+	        <div class="dotcon dc2">
+	        <div class="dot"></div>
+	        </div>
+	    
+	        <div class="dotcon dc3">
+	        <div class="dot"></div>
+	        </div>
+	 
+	  </div>
+	</div>
+	
+	<div id="mainvisiblebody">
+    <div class="container black-container">
+      <div class="row top-ten">
+        <div class='col-md-12'>
+          <span class="population-number" id="popnum"></span>
+        </div>
+        <div class='col-md-12 top-forty'>
+          <span class="population-name" id="popname"></span><br>
+          <span class="population-meta" id="insidenum"></span>
+        </div>	
+      </div>
+    </div>
+	
+	
+    <div class="container page-section-divider bottom-twenty">
+      <div class="row top-ten">
+        <div class='col-md-12'>
+          <span class="page-header-text"><span class="glyphicon glyphicon-camera right-ten"></span>Snapshot</span>
+        </div>
+      </div>
+      <div class="row top-ten">
+        <div class='col-md-4'>
+          <span id="snapshotColumn1"></span>		
+        </div>
+        <div class='col-md-4'>
+		  <span id="snapshotColumn2"></span>		
+		</div>
+        <div class='col-md-4'>
+		  <span id="snapshotColumn3"></span>	
+		  <span class="list-header-text">Most-Typical Records:</span>
+		  <span id="recordMostTypical"></span>	
+		</div>
+      </div>
+    </div>
+	
+	
+	<div class="container page-section-divider bottom-twenty">
+	  <div class="row top-ten">
+	  	<div class='col-md-12'>
+	    	<span class="page-header-text"><span class="glyphicon glyphicon-dashboard right-ten"></span>What's Interesting</span>
+	  	</div>
+	  </div>
+      <div class="row top-ten">
+	    <div class='col-md-4'>
+		  <span class="page-subheader-text">Indexing</span>
+		</div>
+		<div class='col-md-4'>
+		  <span class="page-subheader-text">Correlation</span>
+		</div>
+		<div class='col-md-4'>
+		  <span class="page-subheader-text">Entries</span>
+		</div>
+	  </div>
+      <div class="row top-ten">
+        <div class='col-md-4'>
+	      <span class="list-header-text">Over-Indexing at Scale:</span>
+		  <span id="variableIndexOverColumn"></span>
+		  <br><br>
+		  <span class="list-header-text">Under-Indexing at Scale:</span>
+		  <span id="variableIndexUnderColumn"></span>
+		</div>
+        <div class='col-md-4'>
+		  <span class="list-header-text">Strongly-Correlated:</span>
+		  <span id="correlationIndexOverColumn"></span>
+		  <br><br>
+		  <span class="list-header-text">Inversely-Correlated:</span>
+		  <span id="correlationIndexUnderColumn"></span>
+		</div>
+        <div class='col-md-4'>
+		  <span class="list-header-text">Least-Typical Records:</span>
+		  <span id="recordLeastTypical"></span>
+		  <br><br>
+		  <span class="list-header-text">Top Outlying Records:</span>
+		  <span id="recordOutliers"></span>
+		</div>
+	  </div>
+    </div>
+	
+	<div class="container page-section-divider bottom-twenty">
+	  <div class="row top-ten">
+	    <div class='col-md-12'>
+	      <span class="page-header-text"><span class="glyphicon glyphicon-th right-ten"></span>Data Views</span>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="container" id="maincontainer">
+    </div>
+	
+	<div class="container page-section-divider">
+	  <div class="row top-ten">
+	  	<div class='col-md-12'>
+	      <span class="page-header-text">
+	      <span class="glyphicon glyphicon-stats right-ten"></span>Correlation
+	      </span>
+	  	</div>
+	  </div>
+	</div>
+	
+	<div class="container" id="correlationcontainer">	
+    </div>
+	
+    <div class="jumbotron black-container">
+      <div class="container">
+        <div class='col-md-6 bottom-twenty'>
+          <span class="page-subheader-text">
+            <span class='glyphicon glyphicon-book right-ten'></span>
+            About
+          </span>
+          <br><br>
+          This page built with Pollitt &mdash; a open-source library for processing and identifying patterns in data sets &mdash; by <a href="http://www.winding.co">Ian Fitzpatrick</a>. Full documentation and source files are <a href="https://github.com/iandfitzpatrick/pollitt">available from GitHub</a> and protected under an MIT License.
+        </div>
+        <div class='col-md-6 bottom-twenty'>
+          <span class="page-subheader-text">
+            <span class='glyphicon glyphicon-copyright-mark right-ten'></span>
+            License
+          </span>
+          <br><br>
+        	This content is released under <a href="http://opensource.org/licenses/MIT">the MIT License</a>. You are welcome to modify, add to, work from, remix or otherwie alter the source code to suit your own needs, with certain restrictions. If you do, I'd love to hear about it.
+        </div>
+      </div>
+    </div> 
+    
+	</div>
+	
+	<!----------------------------------------------------------------------------------------- END PAGE BODY -->
+	
+	<!-- --------------------------------------------------------- LOAD BODY SCRIPTS -->
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>											<!-- JQUERY -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>						<!-- BOOTSTRAP JS -->
+    <script src="js/jquery.tablesorter.js"></script>										<!-- TABLESORTER CUSTOM JQUERY -->
+    <script src="js/jquery.tablesorter.widgets.min.js"></script>							<!-- TABLESORTER CUSTOM JQUERY -->
+    
+    <script>
+    
+    //----------------------------------------------------------->> INSTANTIATE GLOBAL VARIABLES
+    var categories_arr = new Array();								//	array of category names
+    var totalPopulation_num = 0;									//	size of the total population -> roughly equal to total rows
+    var insidePopulation_num = 0;
+	var correlationData_arr = new Array();							//	array to hold all of the correlation data
+	var strongPositiveCorr_arr = new Array();						// 	array containing strongly correlated data objects
+	var moderatePositiveCorr_arr = new Array();						// 	array containing moderately correlated data objects
+	var strongNegativeCorr_arr = new Array();						// 	array containing strongly uncorrelated data objects
+	var moderateNegativeCorr_arr = new Array();						// 	array containing moderately uncorrelated data objects
+	var population_str = '';
+	var minimumSampleSize_num = 0;
+	var masterTable; 
+	var perfectRecord_arr = new Array();
+	var variableInterestingOver_arr = new Array();
+	var variableInterestingUnder_arr = new Array();
+	var recordsCorrelation_arr = new Array();
+	var recordsOutliers_arr = new Array();
+	var myPopulationIndex = 0;
+	var snapshotColumnIndex = 1;
+	var defaultMode = false;
+    
+    //----------------------------------------------------------->> DOCUMENT:READY
+    $(document).ready(function() 
+	{
+	  getSpreadsheetMacroData();
+	  document.title = pageTitle_str;									//----------------->> Start by loading the Google Spreadsheet
+      population_str = GetQueryStringParams('userID');	
+      
+      if(population_str == 'default')
+      {
+	      defaultMode = true;
+      }
+      
+      $("#mainvisiblebody").hide();
+      
+      $("#titleBar").append(pageTitle_str);
+	});
+	
+    </script>
+	
+  </body>
+	
+</html>

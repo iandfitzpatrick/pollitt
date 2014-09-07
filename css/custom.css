@@ -1,0 +1,187 @@
+/* Edits to Block Element Styles */
+
+body {
+  font: 1.15em courier; 
+  line-height: 140%;
+}
+
+/* Text Styles */
+
+.page-header-text {
+  font: bold 1.9em helvetica;
+  text-transform: uppercase;
+}
+
+.page-subheader-text {
+  font: bold 1.3em helvetica;
+  text-transform: uppercase;
+}
+
+.list-header-text {
+  font: bold 0.9em helvetica;
+}
+
+/* Header Text */
+
+.population-number {
+  font: bold 150px helvetica;
+  line-height: 70%;
+}
+
+.population-name {
+  font: bold 64px helvetica;
+  line-height: 100%;
+}
+
+.population-meta {
+  font: bold 36px helvetica;
+}
+
+/* Containers, Rows and Dividers */
+
+.black-container {
+  background-color: #333;
+  border-top: #333 solid 20px; 
+  color: #fff; 
+}
+
+.page-section-divider {
+  border-top: #333 solid 20px;
+  margin-bottom: 10px;
+}
+
+.data-view-row {
+  border-bottom: thin solid #eee; 
+  margin-bottom: 20px; 
+  margin-top: 20px;
+}
+
+/* Margins and Adjustments */
+
+.right-ten {
+  margin-right: 10px;
+}
+
+.top-ten {
+  margin-top: 10px;
+}
+
+.bottom-ten {
+	margin-bottom: 20px;
+}
+
+.top-forty {
+  margin-top: 40px;
+}
+
+.bottom-twenty {
+  margin-bottom: 20px;
+}
+
+/* Glyph Positioning */
+
+.glyph-overindex {
+  color: #090; 
+  margin-top:2px;
+}
+
+.glyph-underindex {
+  color: #900; 
+  margin-top:2px;
+}
+
+
+/* Preloader */
+
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:900,700,500,300,100);
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.bouncywrap{
+  position: relative;
+}
+
+
+.dotcon{
+  display: block;
+  float: left;
+  width: 50px;
+  position: absolute;
+}
+
+.dc1{
+  -webkit-animation: bouncy1 1.5s infinite;
+  left: -40px;
+  animation: bouncy1 1.5s infinite;
+}
+
+.dc2{
+  -webkit-animation: bouncy2 1.5s infinite;
+  animation: bouncy2 1.5s infinite;
+  left: 0;
+}
+
+.dc3{
+  -webkit-animation: bouncy3 1.5s infinite;
+  animation: bouncy3 1.5s infinite;
+  left: 40px;
+}
+
+.dot{
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: #428bca;
+}
+
+
+@-webkit-keyframes bouncy1{
+  0% {-webkit-transform: translate(0px,0px) rotate(0deg);}
+  50% {-webkit-transform: translate(0px,0px) rotate(180deg);}
+  100% {-webkit-transform: translate(40px,0px) rotate(-180deg);}
+}
+
+@keyframes bouncy1{
+  0% {transform: translate(0px,0px) rotate(0deg);}
+  50% {transform: translate(0px,0px) rotate(180deg);}
+  100% {transform: translate(40px,0px) rotate(-180deg);}
+}
+
+@-webkit-keyframes bouncy2{
+  0% {-webkit-transform: translateX(0px);}
+  50% {-webkit-transform: translateX(-40px);}
+  100% {-webkit-transform: translateX(-40px);}
+}
+
+@keyframes bouncy2{
+  0% {transform: translateX(0px);}
+  50% {transform: translateX(-40px);}
+  100% {transform: translateX(-40px);}
+}
+
+@-webkit-keyframes bouncy3{
+  0% {-webkit-transform: translateX(0px);}
+  50% {-webkit-transform: translateX(0px);}
+  100% {-webkit-transform: translateX(-40px);}
+}
+
+@keyframes bouncy3{
+  0% {transform: translateX(0px);}
+  50% {transform: translateX(0px);}
+  100% {transform: translateX(-40px);}
+}
+
