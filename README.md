@@ -32,8 +32,7 @@ To see these examples in action, reference the sample <a href="http://bit.ly/pol
 
 All of the following settings reference the configuration.js file located in Pollit's root directory:
 
-1. Point your instance of Pollitt to the Google Spreadsheet you've created by updating the value of <strong>googleSpreadsheetURL</strong>
-
+1. Point your instance of Pollitt to the Google Spreadsheet you've created by updating the value of <strong>googleSpreadsheetURL</strong>. You will need to add '/gviz/tq' to the end of the URL if it's not already included, in order to have the query work correctly.
 2. Update the page title and header by updating <strong>pageTitle_str</strong>
 3. You can adjust thresholds for identifying a variable as underindexed or overindexed by changing the values of <strong>overIndexThreshold_num</strong> and <strong>underIndexThreshold_num</strong>.
 4. As of the current build, sample size is not calculated automatically. To adjust the minimum required sample size, adjust the value of <strong>sampleSizePercentageThreshold_num</strong>. Assigning it a value of 3, for example, is equivalent to declaring any value that represents less than 3% of the overall records in the set too small to work with.
