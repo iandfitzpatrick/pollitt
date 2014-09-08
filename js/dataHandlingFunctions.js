@@ -206,7 +206,7 @@ function handleSpreadsheetMacroData(response)
 {
   masterTable = response.getDataTable();								// extract the datatable from the returned query
   totalPopulation_num = masterTable.getNumberOfRows() - 2;			// assign the total size of the data set, minus the header and category rows
-	
+  
   minimumSampleSize_num = (totalPopulation_num * sampleSizePercentageThreshold_num) / 100;
 	
   //first, get the number of columns
@@ -233,19 +233,22 @@ function handleSpreadsheetMacroData(response)
     var raw_arr = rawLabel_str.split(" ");					// so split the label on the [space]
 
     var category_str = getColumnCategoryName(masterTable, i);
+    
     var test_str = category_str + "_arr";					// define the name for the category array that this should be inserted into
 		
 	var myObj = new Object();								
 	myObj.columnLetter_str = masterTable.getColumnId(i);			// assign the column letter to the object
 	myObj.columnLabel_str = getColumnVariableName(masterTable, i);
 	myObj.columnInsideCount_num = getColumnInsideCount(masterTable, i, myPopulationIndex);
+	
 	myObj.columnInsidePopulation_num = getColumnInsidePopulation(masterTable, myPopulationIndex);
 	myObj.columnOverallCount_num = getColumnOverallCount(masterTable, i);
+	
 	myObj.columnInsidePercentage_num = calculatePercentage( myObj.columnInsideCount_num, myObj.columnInsidePopulation_num, 1);
 	myObj.columnOverallPercentage_num = calculatePercentage( myObj.columnOverallCount_num, totalPopulation_num, 1 );
 	myObj.indexingValue_num = calculateIndexing(myObj.columnInsidePercentage_num, myObj.columnOverallPercentage_num );
 	myObj.isAcceptableSampleSize = checkSampleSize(myObj.columnInsideCount_num);
-
+	
 	myObj.URLLink_str = createVariableLinkName( myObj.columnLabel_str );
 	  
 	myObj.columnInteresting_num = calculateInterestingValue(myObj.indexingValue_num, myObj.columnInsidePercentage_num, myObj.columnLabel_str );
@@ -258,6 +261,8 @@ function handleSpreadsheetMacroData(response)
 	{
 		
 	}
+	
+	
 		
 	var correlation_obj = new Object();						// instantiate a new object for the correlation
 	correlation_obj.label = raw_arr[0];						// assign that object a label value			
@@ -269,8 +274,11 @@ function handleSpreadsheetMacroData(response)
 	
 	if( tcol > 1 && trow > 1)								// check to see if the grouped table has scale
 	{
-	  myObj.count_num = tempresult.getValue(2,1);			// grab the count from that table
+		
+		
+	  myObj.count_num = tempresult.getValue(1,1);			// grab the count from that table
 	}
+		
 		
 																// if the category array is not undefined
 	if(categories_arr.indexOf(category_str) == -1 && category_str != "" && category_str != 'undefined' && category_str != undefined && category_str != "ID" )
@@ -281,6 +289,7 @@ function handleSpreadsheetMacroData(response)
 	    categories_arr.push(category_str);				// tell the categories array about it
 	  }	
 	}
+		
 		
 	if( category_str != "" && category_str != 'undefined' && category_str != undefined && category_str != "ID" )	// if the category has a value
 	{
@@ -324,7 +333,6 @@ function handleSpreadsheetMacroData(response)
 		updatePageHeader(myObj.count_num);
 	}
 	
-	
   }
   
   if( defaultMode )
@@ -332,6 +340,7 @@ function handleSpreadsheetMacroData(response)
     updatePageHeader();
   }
 	
+		
   renderVariableInterestingOver();
   renderVariableInterestingUnder();
   parseRowsForCorrelation();
