@@ -265,21 +265,12 @@ function handleSpreadsheetMacroData(response)
 	
 		
 	var correlation_obj = new Object();						// instantiate a new object for the correlation
-	correlation_obj.label = raw_arr[0];						// assign that object a label value			
-															// create a grouped table from which to grab a count	
-	var tempresult = google.visualization.data.group(masterTable, [i], [{'column': i, 'aggregation': google.visualization.data.count, 'type': 'number'}]);
+	correlation_obj.label = raw_arr[0];						// assign that object a label value	
 	
-	var tcol = tempresult.getNumberOfColumns();				// find the # of columns in the grouped table
-	var trow = tempresult.getNumberOfRows();				// find the # of rows in the grouped table				
 	
-	if( tcol > 1 && trow > 1)								// check to see if the grouped table has scale
-	{
-		
-		
-	  myObj.count_num = tempresult.getValue(1,1);			// grab the count from that table
-	}
-		
-		
+	myObj.count_num = getColumnInsidePopulation(masterTable, i);
+			
+	
 																// if the category array is not undefined
 	if(categories_arr.indexOf(category_str) == -1 && category_str != "" && category_str != 'undefined' && category_str != undefined && category_str != "ID" )
 	{
